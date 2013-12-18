@@ -26,9 +26,9 @@ public class StarTeamFilePointFunctions {
  * @param collection Collection of StarTeam files
  * @return collection of full path file names 
  */
-public static Collection<java.io.File> convertToFileCollection(final Collection<com.starbase.starteam.File> collection) {
+public static Collection<java.io.File> convertToFileCollection(final Collection<com.starteam.File> collection) {
     Collection<java.io.File> result = new ArrayList<java.io.File>();
-    for (com.starbase.starteam.File f:collection) {
+    for (com.starteam.File f:collection) {
       result.add(new java.io.File(f.getFullName()));
     }
 
@@ -39,9 +39,9 @@ public static Collection<java.io.File> convertToFileCollection(final Collection<
  * @param collection Collection of StarTeam files
  * @return collection of FilePoints - information vector needed keeping track of file status 
  */
-  public static Collection<StarTeamFilePoint> convertFilePointCollection(final Collection<com.starbase.starteam.File> collection) throws IOException {
+  public static Collection<StarTeamFilePoint> convertFilePointCollection(final Collection<com.starteam.File> collection) throws IOException {
     Collection<StarTeamFilePoint> result = new ArrayList<StarTeamFilePoint>();
-    for (com.starbase.starteam.File f:collection) {
+    for (com.starteam.File f:collection) {
       result.add(new StarTeamFilePoint(f));
     }
     return result;
@@ -55,8 +55,8 @@ public static Collection<java.io.File> convertToFileCollection(final Collection<
     return result;
   }
 
-  public static Collection<com.starbase.starteam.File> extractFileSubCollection(final Map<java.io.File, com.starbase.starteam.File> map, final Collection<java.io.File> collection) {
-    Collection<com.starbase.starteam.File> result = new ArrayList<com.starbase.starteam.File>();
+  public static Collection<com.starteam.File> extractFileSubCollection(final Map<java.io.File, com.starteam.File> map, final Collection<java.io.File> collection) {
+    Collection<com.starteam.File> result = new ArrayList<com.starteam.File>();
     for (java.io.File f:collection) {
       result.add(map.get(f));
     }

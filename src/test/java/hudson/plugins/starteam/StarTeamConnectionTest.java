@@ -19,8 +19,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.starbase.starteam.DuplicateServerListEntryException;
-import com.starbase.starteam.ServerInfo;
+import com.starteam.DuplicateServerListEntryException;
+import com.starteam.ServerInfo;
 
 /**
  * @author John McNair <john@mcnair.org>

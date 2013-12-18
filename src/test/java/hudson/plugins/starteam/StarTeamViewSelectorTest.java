@@ -11,7 +11,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 
-import com.starbase.starteam.View;
+import com.starteam.View;
 
 public class StarTeamViewSelectorTest {
 

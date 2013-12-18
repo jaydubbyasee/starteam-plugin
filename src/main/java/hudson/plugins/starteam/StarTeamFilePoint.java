@@ -20,7 +20,7 @@ public class StarTeamFilePoint implements Serializable, Comparable {
 		super();
 	}
 
-	public StarTeamFilePoint(com.starbase.starteam.File f) {
+	public StarTeamFilePoint(com.starteam.File f) {
 		this(f.getFullName(),f.getRevisionNumber());
 	}
 

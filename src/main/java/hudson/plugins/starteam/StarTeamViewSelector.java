@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.starbase.starteam.Label;
-import com.starbase.starteam.PromotionState;
-import com.starbase.starteam.View;
-import com.starbase.starteam.ViewConfiguration;
+import com.starteam.Label;
+import com.starteam.PromotionState;
+import com.starteam.View;
+import com.starteam.ViewConfiguration;
 import com.starbase.util.OLEDate;
 
 /**

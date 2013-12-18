@@ -3,7 +3,7 @@ package hudson.plugins.starteam;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.starbase.starteam.File;
+import com.starteam.File;
 
 /**
  * The collection of actions that need to be performed upon checkout.

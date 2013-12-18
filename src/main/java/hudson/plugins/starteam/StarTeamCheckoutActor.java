@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.Collection;
 
-import com.starbase.starteam.Folder;
+import com.starteam.Folder;
 
 /**
  * A helper class for transparent checkout operations over the network. Can be

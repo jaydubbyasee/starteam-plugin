@@ -20,22 +20,22 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 
-import com.starbase.starteam.ClientApplication;
-import com.starbase.starteam.File;
-import com.starbase.starteam.Folder;
-import com.starbase.starteam.Item;
-import com.starbase.starteam.LogonException;
-import com.starbase.starteam.Project;
-import com.starbase.starteam.PropertyNames;
-import com.starbase.starteam.Server;
-import com.starbase.starteam.ServerAdministration;
-import com.starbase.starteam.ServerConfiguration;
-import com.starbase.starteam.ServerInfo;
-import com.starbase.starteam.Status;
-import com.starbase.starteam.User;
-import com.starbase.starteam.UserAccount;
-import com.starbase.starteam.View;
-import com.starbase.starteam.vts.comm.NetMonitor;
+import com.starteam.ClientApplication;
+import com.starteam.File;
+import com.starteam.Folder;
+import com.starteam.Item;
+import com.starteam.LogonException;
+import com.starteam.Project;
+import com.starteam.PropertyNames;
+import com.starteam.Server;
+import com.starteam.ServerAdministration;
+import com.starteam.ServerConfiguration;
+import com.starteam.ServerInfo;
+import com.starteam.Status;
+import com.starteam.User;
+import com.starteam.UserAccount;
+import com.starteam.View;
+import com.starteam.vts.comm.NetMonitor;
 import com.starbase.util.OLEDate;
 
 /**
@@ -150,7 +150,7 @@ public class StarTeamConnection implements Serializable {
 		try {
 			serverInfo.setDescription("StarTeam connection to " + this.hostName + ((counter == 0) ? "" : " (" + Integer.toString(counter) + ")"));
 			return true;
-		} catch (com.starbase.starteam.DuplicateServerListEntryException e) {
+		} catch (com.starteam.DuplicateServerListEntryException e) {
 			return false;
 		}
 	}
@@ -455,8 +455,8 @@ public class StarTeamConnection implements Serializable {
 	public StarTeamChangeSet computeChangeSet(Folder rootFolder, java.io.File workspace, final Collection<StarTeamFilePoint> historicFilePoints, PrintStream logger) throws StarTeamSCMException, IOException {
 	    // --- compute changes as per starteam
 
-	    final Collection<com.starbase.starteam.File> starteamFiles = StarTeamFunctions.listAllFiles(rootFolder, workspace);
-	    final Map<java.io.File, com.starbase.starteam.File> starteamFileMap = StarTeamFunctions.convertToFileMap(starteamFiles);
+	    final Collection<com.starteam.File> starteamFiles = StarTeamFunctions.listAllFiles(rootFolder, workspace);
+	    final Map<java.io.File, com.starteam.File> starteamFileMap = StarTeamFunctions.convertToFileMap(starteamFiles);
 	    final Collection<java.io.File> starteamFileSet = starteamFileMap.keySet();
 	    final Collection<StarTeamFilePoint> starteamFilePoint = StarTeamFilePointFunctions.convertFilePointCollection(starteamFiles);
 
@@ -509,7 +509,7 @@ public class StarTeamConnection implements Serializable {
 		return new StarTeamChangeLogEntry(fileName,revisionNumber,date,username,msg, change);
 	}
 
-	public StarTeamChangeSet computeDifference(final Collection<StarTeamFilePoint> currentFilePoint, final Collection<StarTeamFilePoint> historicFilePoint, StarTeamChangeSet changeSet, Map<java.io.File, com.starbase.starteam.File> starteamFileMap) {
+	public StarTeamChangeSet computeDifference(final Collection<StarTeamFilePoint> currentFilePoint, final Collection<StarTeamFilePoint> historicFilePoint, StarTeamChangeSet changeSet, Map<java.io.File, com.starteam.File> starteamFileMap) {
 		  final Map<java.io.File, StarTeamFilePoint> starteamFilePointMap = StarTeamFilePointFunctions.convertToFilePointMap(currentFilePoint);
 		  Map<java.io.File, StarTeamFilePoint> historicFilePointMap = StarTeamFilePointFunctions.convertToFilePointMap(historicFilePoint);
 	
@@ -537,7 +537,7 @@ public class StarTeamConnection implements Serializable {
 				  //unchanged files
 				  continue;
 			  }
-			  com.starbase.starteam.File stf = starteamFileMap.get(f);
+			  com.starteam.File stf = starteamFileMap.get(f);
 			  if (starteam.getRevisionNumber() > historic.getRevisionNumber()) {
 				  higher.add(f);
 				  changeSet.addChange(FileToStarTeamChangeLogEntry(stf,"change"));
@@ -554,7 +554,7 @@ public class StarTeamConnection implements Serializable {
 			  changeSet.addChange(change);
 		  }
 		  for (java.io.File f : starteamOnly) {
-			  com.starbase.starteam.File stf = starteamFileMap.get(f);
+			  com.starteam.File stf = starteamFileMap.get(f);
 			  changeSet.addChange(FileToStarTeamChangeLogEntry(stf,"added"));
 		  }
 	

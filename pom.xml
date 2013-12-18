@@ -12,7 +12,7 @@
 	<groupId>hudson.plugins</groupId>
 	<artifactId>starteam</artifactId>
 	<packaging>hpi</packaging>
-	<version>0.6.12-SNAPSHOT</version>
+	<version>0.6.13-SNAPSHOT</version>
 	<name>Jenkins StarTeam plugin</name>
 	<url>http://wiki.jenkins-ci.org/display/JENKINS/StarTeam</url>
 	<inceptionYear>2007</inceptionYear>
@@ -25,22 +25,22 @@
   </licenses>
   <!--test-->
   <scm>
-    <connection>scm:git:https://github.com/jenkinsci/starteam-plugin.git</connection>
-    <developerConnection>scm:git:https://github.com/jenkinsci/starteam-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/starteam-plugin</url>
+    <connection>scm:git:https://github.com/jaydubbyasee/starteam-plugin.git</connection>
+    <developerConnection>scm:git:https://github.com/jaydubbyasee/starteam-plugin.git</developerConnection>
+    <url>https://github.com/jaydubbyasee/starteam-plugin</url>
   </scm>
 
-  <distributionManagement>
+<!--  <distributionManagement>
     <repository>
       <id>maven.jenkins-ci.org</id>
       <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
     </repository>
 <snapshotRepository>
-<!-- prevent accidental deployment of SNAPSHOTS to repository -->
+ prevent accidental deployment of SNAPSHOTS to repository 
 <id>bogus</id>
 <url>file:.</url>
 </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement>-->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -133,6 +133,11 @@
 			<name>David Silk</name>
 			<email>dsilk@verisign.com</email>
 		</contributor>
+                <contributor>
+                    <name>Jonathan Chuong</name>
+                    <email>jchuong@arinc.com</email>
+                    <timezone>-8</timezone>
+                </contributor>
 	</contributors>
 	<pluginRepositories>
 		<pluginRepository>
@@ -143,15 +148,15 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.borland</groupId>
-			<artifactId>starteam100</artifactId>
-			<version>10</version>
+			<groupId>com.starteam</groupId>
+			<artifactId>starteam130</artifactId>
+			<version>13</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.borland</groupId>
-			<artifactId>starteam100-resources</artifactId>
-			<version>10</version>
+			<groupId>com.starteam</groupId>
+			<artifactId>starteam130-resources</artifactId>
+			<version>13</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
