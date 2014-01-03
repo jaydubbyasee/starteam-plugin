@@ -4,7 +4,10 @@ import com.starteam.Folder;
 import com.starteam.View;
 import com.starteam.File;
 import com.starteam.Item;
-
+import com.starteam.TypeCollection;
+import com.starteam.ViewMember;
+import com.starteam.File.Type;
+import com.starteam.Server;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.Map;
@@ -114,9 +117,12 @@ public class StarTeamFunctions {
     for (Folder f : folder.getSubFolders()) {
       listAllFiles(result, f);
     }
+    
+    Server s = folder.getServer();
+    TypeCollection types = s.getTypes();
+    
     // find items in this folder
-    for (Item i : folder.getItems(folder.getView().getProject().getServer()
-        .getTypeNames().FILE)) {
+    for (Object i : folder.getItems(types.FILE)) {
       File f = (com.starteam.File) i;
       try {
         // This sometimes throws... deep inside starteam =(
@@ -126,6 +132,7 @@ public class StarTeamFunctions {
         // + e.getLocalizedMessage());
       }
     }
+    
   }
 
 

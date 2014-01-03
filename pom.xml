@@ -3,27 +3,24 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.jvnet.hudson.plugins</groupId>
-		<artifactId>plugin</artifactId>
-		<version>1.345</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>plugin</artifactId>
+            <version>1.509.4</version><!-- which version of Jenkins is this plugin built against? -->
+         </parent>
 
-	<groupId>hudson.plugins</groupId>
-	<artifactId>starteam</artifactId>
-	<packaging>hpi</packaging>
-	<version>0.6.13-SNAPSHOT</version>
-	<name>Jenkins StarTeam plugin</name>
-	<url>http://wiki.jenkins-ci.org/display/JENKINS/StarTeam</url>
-	<inceptionYear>2007</inceptionYear>
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://www.opensource.org/licenses/mit-license.php</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <!--test-->
+	<groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>starteam</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <packaging>hpi</packaging>
+        
+        <licenses>
+          <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+          </license>
+        </licenses>
+        <!--test-->
   <scm>
     <connection>scm:git:https://github.com/jaydubbyasee/starteam-plugin.git</connection>
     <developerConnection>scm:git:https://github.com/jaydubbyasee/starteam-plugin.git</developerConnection>
@@ -139,31 +136,41 @@
                     <timezone>-8</timezone>
                 </contributor>
 	</contributors>
-	<pluginRepositories>
+<!--	<pluginRepositories>
 		<pluginRepository>
 			<id>snapshots.repository.codehaus.org</id>
 			<url>http://snapshots.repository.codehaus.org</url>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories>-->
 
 	<dependencies>
+                <dependency>
+                    <groupId>com.starteam</groupId>
+                    <artifactId>starteam130</artifactId>
+                    <version>13</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/lib/starteam130.jar</systemPath>
+                </dependency>
 		<dependency>
-			<groupId>com.starteam</groupId>
-			<artifactId>starteam130</artifactId>
-			<version>13</version>
-			<scope>provided</scope>
+                    <groupId>com.starteam</groupId>
+                    <artifactId>starteam130-resources</artifactId>
+                    <version>13</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/lib/starteam130-resources.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>com.starteam</groupId>
-			<artifactId>starteam130-resources</artifactId>
-			<version>13</version>
-			<scope>provided</scope>
+                    <groupId>com.smartsockets</groupId>
+                    <artifactId>ss</artifactId>
+                    <version>1</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/lib/ss.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>com.smartsockets</groupId>
-			<artifactId>ss</artifactId>
-			<version>1</version>
-			<scope>provided</scope>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1</version>
+                    <scope>system</scope>
+                    <systemPath>${project.basedir}/lib/tools.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -289,10 +296,17 @@
   </reporting>
 
     <repositories>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>  
 
