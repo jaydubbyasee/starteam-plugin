@@ -278,8 +278,6 @@ public class StarTeamConnection implements Serializable {
 			if (!quietCheckout)
 				logger.println("[co] " + f.getFullName() + "... attempt");
 			try {
-                            
-                            
                             comgr.checkout(f, cooptions);
 //				f.checkout(Item.LockType.UNCHANGED, // leave the lock as is, changing lock for item in the past is impossible
 //						true, // use timestamp from local time
@@ -298,6 +296,7 @@ public class StarTeamConnection implements Serializable {
 			}
 			if (!quietCheckout) logger.println("[co] " + f.getFullName() + "... ok");
 		}
+                comgr.commit();
 		logger.println("*** removing [" + changeSet.getFilesToRemove().size() + "] files");
 		boolean quietDelete = changeSet.getFilesToRemove().size() > 100;
 		if (quietDelete) {
@@ -338,7 +337,7 @@ public class StarTeamConnection implements Serializable {
 	 * @return the name of the user as provided by the StarTeam Server
 	 */
 	public String getUsername(int userId) {
-		User stUser = server.getUsers()[userId];
+		User stUser = server.findUser(userId);
 		String userName =stUser.getName();
 		ServerAdministration srvAdmin = server.getAdministration();
 		User[] userAccts = null;
@@ -511,7 +510,7 @@ public class StarTeamConnection implements Serializable {
 	{
 		int revisionNumber = f.getContentVersion();
 		User user = f.getModifiedBy();
-		String username = getUsername(user.getID());
+		String username = user.getName(); //getUsername(user.getID());
 		String msg = f.getComment();
 		String fileName = f.getName();		
 
